@@ -15,5 +15,9 @@
 //    return view('welcome');
 //});
 
+Route::get('app/admin','WEB\Admin\UserController@index');
+Route::get('app/admin/login','WEB\Admin\AuthController@index');
+Route::post('app/admin/login','WEB\Admin\AuthController@checkLog');
+
 Route::get('/', 'Web\Home\HomeController@index')->name('home');
-Route::get('/course', 'Web\Home\HomeController@course')->name('course');
+Route::get('course', 'Web\Home\HomeController@course')->name('course');
