@@ -1,3 +1,5 @@
+@include('sweetalert::alert')
+
 <header class="header d-flex flex-row">
     <div class="header_content d-flex flex-row align-items-center">
         <!-- Logo -->

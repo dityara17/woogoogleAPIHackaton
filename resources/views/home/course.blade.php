@@ -79,7 +79,7 @@
                             </div>
                             <div class="course_author_name">Michael Smith, <span>Author</span></div>
                             <div class="course_price d-flex flex-column align-items-center justify-content-center">
-                                <span>$29</span></div>
+                                <span>Free</span></div>
                         </div>
                     </div>
                 </div>
