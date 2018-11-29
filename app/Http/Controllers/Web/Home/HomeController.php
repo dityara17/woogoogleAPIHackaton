@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Web\Home;
 
-use Illuminate\Http\Request;
+use App\Model\Kelas;
 use App\Http\Controllers\Controller;
-Use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -12,13 +11,16 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view("home.index");
+        $list = Kelas::all()->take(3);
+
+        return view("home.index", compact('list'));
     }
 
     public function course()
     {
-        Alert::success('Success Title', 'Success Message');
-        return view("home.course");
+        $list = Kelas::all();
+
+        return view("home.course", compact('list'));
     }
 
 }
