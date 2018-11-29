@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'Web\Home\HomeController@index')->name('home');
+Route::get('/course', 'Web\Home\HomeController@course')->name('course');
