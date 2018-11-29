@@ -13,7 +13,7 @@ class Enroll extends Migration
      */
     public function up()
     {
-        Schema::create('kelas_konten', function (Blueprint $table) {
+        Schema::create('enroll', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_kelas');
             $table->integer('id_user');
