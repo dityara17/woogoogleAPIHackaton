@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class KelasKonten extends Migration
+class Kategori extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class KelasKonten extends Migration
      */
     public function up()
     {
-        Schema::create('kelas_konten', function (Blueprint $table) {
+        Schema::create('kategori', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_kelas');
-            $table->text('nama');
-            $table->text('konten');
+            $table->string('nama');
+            $table->string('gambar');
+            $table->text('deskripsi');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class KelasKonten extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelas_konten');
+        Schema::dropIfExists('kategori');
     }
 }
