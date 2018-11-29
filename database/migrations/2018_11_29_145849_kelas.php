@@ -16,8 +16,8 @@ class Kelas extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_kelas');
-            $table->text('deskripsi')->nullable();
-            $table->string('gambar')->nullable();
+            $table->text('deskripsi');
+            $table->string('gambar');
             $table->integer('author');
             $table->softDeletes();
             $table->timestamps();
