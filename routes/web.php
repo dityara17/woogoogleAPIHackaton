@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('app/admin','WEB\Admin\UserController@index');
+Route::get('app/admin/login','WEB\Admin\AuthController@index');
+Route::post('app/admin/login','WEB\Admin\AuthController@checkLog');
