@@ -5,7 +5,7 @@
         <!-- Logo -->
         <div class="logo_container">
             <div class="logo">
-                <img src="images/woobrain.png" alt="">
+                <img src="{{url('images/woobrain.png')}}" alt="">
             </div>
         </div>
 
@@ -21,7 +21,7 @@
         </nav>
     </div>
     <div class="header_side d-flex flex-row justify-content-center align-items-center">
-        <img src="images/man.svg" alt="">
+        <img src="{{url('images/man.svg')}}" alt="">
         <span>Akun</span>
     </div>
 
