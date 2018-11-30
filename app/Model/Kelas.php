@@ -18,4 +18,8 @@ class Kelas extends Model
     public function getKategori(){
         return $this->belongsTo('App\Model\Kategori','id_kategori');
     }
+
+    public function getEnroll(){
+        return $this->hasMany('App\Model\Enroll','id_kelas');
+    }
 }
