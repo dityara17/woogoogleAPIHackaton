@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Course - News Post</title>
+    <title>wooBrain</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Course Project">
@@ -65,9 +65,8 @@
                                      role="tabpanel"
                                      aria-labelledby="nav-home-tab">
 
-                                    <div class="news_post_image">
-                                        <img src="https://woodruffandco.com.au/wp-content/uploads/2017/03/handmade-with-love-1.jpg"
-                                             alt="https://unsplash.com/@dsmacinnes">
+                                    <div class="news_post_image" style="margin-top: 20px">
+                                        <img src="{{url('images/kelas/'.$x->gambar)}}">
                                     </div>
                                     <div class="news_post_top d-flex flex-column flex-sm-row">
                                         <div class="news_post_date_container">
@@ -77,7 +76,7 @@
                                         </div>
                                         <div class="news_post_title_container">
                                             <div class="news_post_title">
-                                                <a href="news_post.html">{{$x->nama_kelas}}</a>
+                                                <a href="#">{{$x->nama_kelas}}</a>
                                             </div>
                                             <div class="news_post_meta">
                                                 <span class="news_post_author"><a

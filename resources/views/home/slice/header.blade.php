@@ -15,14 +15,14 @@
                 <ul class="main_nav_list">
                     <li class="main_nav_item"><a href="{{route('home')}}">home</a></li>
                     <li class="main_nav_item"><a href="{{route('course')}}">kelas</a></li>
-                    <li class="main_nav_item"><a href="courses.html">tentang</a></li>
+
                 </ul>
             </div>
         </nav>
     </div>
     <div class="header_side d-flex flex-row justify-content-center align-items-center">
         <img src="{{url('images/man.svg')}}" alt="">
-        <span>Akun</span>
+        <span>{{Session::get('login')}}</span>
     </div>
 
     <!-- Hamburger -->

@@ -128,15 +128,14 @@
                 @foreach($list as $value)
                     <div class="col-lg-4 course_box">
                         <div class="card">
-                            <img class="card-img-top" src="images/course_1.jpg" alt="https://unsplash.com/@kellybrito">
+                            <img class="card-img-top" src="{{url('images/kelas/'.$value->gambar)}}" alt="https://unsplash.com/@kellybrito">
                             <div class="card-body text-center">
-                                <div class="card-title"><a href="courses.html">{{$value->nama_kelas}}</a></div>
+                                <div class="card-title" style="padding-bottom: 10px"><a
+                                            href="{{route('detailkelas', $value->id)}}">{{$value->nama_kelas}}</a></div>
                                 <div class="card-text">{{$value->deskripsi}}</div>
                             </div>
                             <div class="price_box d-flex flex-row align-items-center">
-                                <div class="course_author_image">
-                                    <img src="images/author.jpg" alt="https://unsplash.com/@mehdizadeh">
-                                </div>
+
                                 <div class="course_author_name">{{$value->getUser->name}} <span></span></div>
                                 <div class="course_price d-flex flex-column align-items-center justify-content-center">
                                     <span>FREE</span></div>
