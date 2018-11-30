@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <div class="">
                             <label for="">Jenis kelamin</label>
-                            <select name="jl" id="" class="form-control">
+                            <select name="sex" id="" class="form-control">
                                 <option value="1">Laki-laki</option>
                                 <option value="0">Perempuan</option>
                             </select>

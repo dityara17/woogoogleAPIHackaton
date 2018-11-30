@@ -53,8 +53,13 @@
                                     <td>{{$key+=1}}</td>
                                     <td>{{$value['nama']}}</td>
                                     <td>
-                                        <a class="btn btn-info btn-sm" title="Edit" href="/app/admin/kelas/{{$kelas['id']}}/materi/{{$value['id']}}/edit"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-danger btn-sm" title="Hapus" href="/app/admin/kelas/{{$kelas['id']}}/materi/{{$value['id']}}/delete"><i class="fa fa-trash" onclick="return confirm('Apakah anda ingin menghapus materi ini ?');"></i></a>
+                                        <a class="btn btn-info btn-sm" title="Edit"
+                                           href="/app/admin/kelas/{{$kelas['id']}}/materi/{{$value['id']}}/edit"><i
+                                                    class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-danger btn-sm" title="Hapus"
+                                           href="/app/admin/kelas/{{$kelas['id']}}/materi/{{$value['id']}}/delete"><i
+                                                    class="fa fa-trash"
+                                                    onclick="return confirm('Apakah anda ingin menghapus materi ini ?');"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -65,6 +70,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        @if ($message = Session::get('success'))
+        swal({
+            text: '<?php echo $message ?>',
+            icon: "success"
+        });
+        @endif
+    </script>
 
 @endsection
 

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class checkLog
+class checkLogClient
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,8 @@ class checkLog
     public function handle($request, Closure $next)
     {
         $user = Session('user');
-        if (!$user || !isset($user) ){
-            return redirect('app/login');
-        } else if($user['role'] != 1 ){
-            return redirect('/');
+        if($user['role'] != 2 ){
+            return redirect('app/admin');
         }
         return $next($request);
     }
