@@ -678,7 +678,13 @@ section
 	line-height: 0.5;
 	white-space: nowrap;
 }
-
+.home_content h2
+{
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 0.5;
+	white-space: nowrap;
+}
 /*********************************
 7. Page Section
 *********************************/
