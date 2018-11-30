@@ -21,4 +21,9 @@ class Kelas extends Model
         return $this->belongsTo('App\Model\Kategori', 'id_kategori');
     }
 
+
+    public function getEnroll(){
+        return $this->hasMany('App\Model\Enroll','id_kelas');
+    }
+
 }

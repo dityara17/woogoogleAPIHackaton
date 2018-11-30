@@ -11,16 +11,21 @@ class KelasController extends Controller
 {
 
 
-    public function index(){
-        $kelas = Kelas::orderBy('id','desc')->paginate('20');
-        return view('admin.kelas.index',compact('kelas'));
+    public function index()
+    {
+        $kelas = Kelas::orderBy('id', 'desc')
+            ->paginate('20');
+        return view('admin.kelas.index', compact('kelas'));
     }
 
-    public function insert(){
+    public function insert()
+    {
         $cats = Kategori::all();
-        return view('admin.kelas.add',compact('cats'));
+        return view('admin.kelas.add', compact('cats'));
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         $kelas = new Kelas();
         $kelas->nama_kelas = $request->nama;
         $kelas->id_kategori = $request->kategori;
@@ -36,20 +41,24 @@ class KelasController extends Controller
             $kelas->gambar = $name;
         }
         $kelas->save();
-        return redirect()->to('app/admin/kelas')->with('success','Berhasil menambah kelas');
+        return redirect()->to('app/admin/kelas')->with('success', 'Berhasil menambah kelas');
     }
-    public function edit($id){
+
+    public function edit($id)
+    {
         $cats = Kategori::all();
         $kelas = Kelas::find($id);
-        return view('admin.kelas.edit',compact('kelas','cats'));
+        return view('admin.kelas.edit', compact('kelas', 'cats'));
     }
-    public function update(Request $request ,$id){
+
+    public function update(Request $request, $id)
+    {
         $kelas = Kelas::find($id);
         $kelas->nama_kelas = $request->nama;
         $kelas->id_kategori = $request->kategori;
         $kelas->deskripsi = $request->desc;
-        $kelas->author = Session('user')['id'];
-        if (!empty($request->gambar)){
+//        $kelas->author = Session('user')['id'];
+        if (!empty($request->gambar)) {
             if ($request->hasFile('gambar')) {
                 $image = $request->file('gambar');
                 $fullName = $image->getClientOriginalName();
@@ -61,12 +70,13 @@ class KelasController extends Controller
             }
         }
         $kelas->save();
-        return redirect()->to('app/admin/kelas')->with('success','Berhasil mengubah kelas');
+        return redirect()->to('app/admin/kelas')->with('success', 'Berhasil mengubah kelas');
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $kelas = Kelas::find($id);
         $kelas->delete();
-        return redirect()->to('app/admin/kelas')->with('success','Berhasil menghapus kelas');
+        return redirect()->to('app/admin/kelas')->with('success', 'Berhasil menghapus kelas');
     }
 }

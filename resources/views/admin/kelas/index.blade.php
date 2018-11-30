@@ -23,6 +23,7 @@
                                 <th>#</th>
                                 <th>Nama Kelas</th>
                                 <th>Kategori</th>
+                                <th class="text-center">Enroll</th>
                                 <th>Author</th>
                                 <th>Action</th>
                             </tr>
@@ -33,12 +34,15 @@
                                     <td>{{$key+=1}}</td>
                                     <td>{{$val['nama_kelas']}}</td>
                                     <td>{{$val->getKategori->nama}}</td>
+                                    <td class="text-center">{{count($val->getEnroll)}}</td>
                                     <td>{{$val->getUser->name}}</td>
                                     <td>
                                         <a class="btn btn-info btn-sm" href="/app/admin/kelas/{{$val['id']}}/edit"><i
                                                     class="fa fa-pencil"></i></a>
                                         <a title="Materi" class="btn btn-primary btn-sm" href="/app/admin/kelas/{{$val['id']}}/materi"><i
                                                     class="fa fa-book"></i></a>
+                                        <a title="User Enroll" class="btn btn-primary btn-warning" href="/app/admin/kelas/{{$val['id']}}/enroll"><i
+                                                    class="fa fa-users"></i></a>
                                         <a onclick="return confirm('Apakah anda ingin menghapus kelas ini ?');" class="btn btn-danger btn-sm" href="/app/admin/kelas/{{$val['id']}}/delete"><i
                                                     class="fa fa-trash"></i></a>
                                     </td>
