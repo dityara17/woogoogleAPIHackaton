@@ -141,9 +141,9 @@
                                 <h3>Mengikuti kelas</h3>
                             </div>
                             <ul class="sidebar_list">
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Ikuti kelas (Gratis)
-                                </button>
-
+                                @foreach($detail as $x)
+                                <a href="{{route('enrollclass', $x->id )}}" role="button" aria-pressed="true" class="btn btn-warning btn-block">Buka Kelas (Gratis)</a>
+                                @endforeach
                             </ul>
                         </div>
 
