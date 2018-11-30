@@ -87,4 +87,13 @@
         </div>
     </div>
 
+    <script>
+        @if ($message = Session::get('success'))
+        swal({
+            text: '<?php echo $message ?>',
+            icon: "success"
+        });
+        @endif
+    </script>
+
 @endsection

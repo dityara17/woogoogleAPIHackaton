@@ -17,6 +17,10 @@ class AuthController extends Controller
         $user = User::where('email', $r->email)->first();
         if ($user && Hash::check($r->password, $user->password)) {
 
+            if (!empty(session('user'))){
+                session()->forget('user');
+            }
+
             $me = array(
                 'id' => $user->id,
                 'role' => $user->role,
@@ -24,15 +28,19 @@ class AuthController extends Controller
                 'email' => $user->email,
             );
             session(['user' => $me]);
-            return redirect()->to('app/admin');
+            if (session('user')['role'] == 1) {
+                return redirect()->to('app/admin');
+            } else{
+                return redirect()->to('/');
+            }
 
         } else {
-            return redirect()->to('app/admin/login')->with('error','Error your email or password');
+            return redirect()->to('app/login')->with('error','Error email or password');
         }
     }
     public function logout(){
         session()->forget('user');
-        return redirect('app/admin/login');
+        return redirect('app/login');
     }
 
     public function store(Request $request){

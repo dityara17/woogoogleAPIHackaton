@@ -23,6 +23,8 @@
 
     <!-- Custom Css -->
     <link href="{!! asset('admin/css/style.css') !!}" rel="stylesheet">
+    {{--alert--}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body class="login-page">
@@ -66,6 +68,14 @@
                     {{--</div>--}}
                 {{--</div>--}}
             </form>
+            <script>
+                @if ($message = Session::get('error'))
+                swal({
+                    text: '<?php echo $message ?>',
+                    icon: "error"
+                });
+                @endif
+            </script>
         </div>
     </div>
 </div>

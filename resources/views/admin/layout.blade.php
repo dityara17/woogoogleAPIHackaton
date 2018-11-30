@@ -36,6 +36,8 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{!! asset('admin/css/themes/all-themes.css') !!}" rel="stylesheet"/>
 
+    {{--alert--}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('optional_component')
 </head>
 
@@ -131,7 +133,7 @@
         <!-- Footer -->
         <div class="legal">
             <div class="copyright">
-                &copy;  {{date('Y')}} <a href="javascript:void(0);">Women HandMada</a>.
+                &copy;  {{date('Y')}} <a href="javascript:void(0);">wooBrain</a>.
             </div>
             <div class="version">
                 <b>Version: </b> 0.0.1
