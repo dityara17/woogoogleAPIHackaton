@@ -67,7 +67,7 @@
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
                data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="{!! url('app/admin') !!}">Admin - Women Creative</a>
+            <a class="navbar-brand" href="{!! url('app/admin') !!}">Admin - wooBrain</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -86,8 +86,8 @@
                 <img src="{!! asset('admin/images/user.png') !!}" width="48" height="48" alt="User"/>
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                <div class="email">john.doe@example.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{session('user')['name']}}</div>
+                <div class="email">{{session('user')['email']}}</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
@@ -118,6 +118,12 @@
                             <a href="{!! url('app/admin/kategori') !!}">Kategori</a>
                         </li>
                     </ul>
+                </li>
+                <li class="">
+                    <a href="/app/admin/users" class="">
+                        <i class="material-icons">group</i>
+                        <span>Users</span>
+                    </a>
                 </li>
             </ul>
         </div>
