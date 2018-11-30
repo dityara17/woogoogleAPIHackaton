@@ -24,11 +24,11 @@
         <img src="{{url('images/man.svg')}}" alt="">
         <span>
             <?php if (session('user') == null) {
-                echo "<a style='color: white' href='app/admin/login'>Login</a>";
-            }
-            else{
+                echo "<a style='color: white' href='app/login'>Login</a>";
+                echo "<a style='color: white' href='app/register'>  | Register</a>";
+            } else {
                 echo session('user')['name'];
-                echo "<a style='color: white' href='app/admin/logout'>  | Keluar</a>";
+                echo "<a style='color: white' href='app/logout'>  | Keluar</a>";
             }
 
             ?></span>
