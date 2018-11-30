@@ -70,7 +70,7 @@
 
                                     </div>
                                     <div class="news_post_text">
-                                        {{!! $x->konten!! }}
+                                        {!!html_entity_decode($x->konten)!!}
                                     </div>
 
 
