@@ -13,7 +13,7 @@
 
 
 Route::get('app/login','WEB\Admin\AuthController@index');
-Route::get('app/logout','WEB\Admin\AuthController@logout');
+Route::get('app/admin/logout','WEB\Admin\AuthController@logout');
 Route::post('app/admin/login','WEB\Admin\AuthController@checkLog');
 
 // route user client

@@ -35,7 +35,7 @@ class AuthController extends Controller
             }
 
         } else {
-            return redirect()->to('app/login')->with('error','Error your email or password');
+            return redirect()->to('app/login')->with('error','Error email or password');
         }
     }
     public function logout(){
