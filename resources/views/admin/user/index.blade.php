@@ -68,6 +68,7 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th width="150">Sex</th>
+                                <th>Role</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -79,7 +80,11 @@
                                     <td>{{$value->email}}</td>
                                     <td>@if($value->sex == '0') Women @else Men @endif</td>
                                     <td>
-                                        
+                                        @if($value['role'] == 1) Admin @else Client @endif
+                                    </td>
+                                    <td width="100">
+                                        <a href="/app/admin/user/{{$value['id']}}/edit" class="btn btn-info btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                        <a onclick="return confirm('Apakah anda yankin ingin menghapus user ini?');" href="/app/admin/user/{{$value['id']}}/delete" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -92,5 +97,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        @if ($message = Session::get('success'))
+        swal({
+            text: '<?php echo $message ?>',
+            icon: "success"
+        });
+        @endif
+    </script>
 
 @endsection

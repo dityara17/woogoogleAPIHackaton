@@ -12,9 +12,16 @@
 */
 
 
-Route::get('app/admin/login','WEB\Admin\AuthController@index');
+Route::get('app/login','WEB\Admin\AuthController@index');
+Route::get('app/logout','WEB\Admin\AuthController@logout');
 Route::post('app/admin/login','WEB\Admin\AuthController@checkLog');
 
+// route user client
+Route::group(['middleware' => 'cAuthClient'], function(){
+
+});
+
+// route user admin
 Route::group(['middleware' => 'cAuth'], function(){
 
     //kategori
@@ -48,6 +55,9 @@ Route::group(['middleware' => 'cAuth'], function(){
     Route::get('app/admin/users','WEB\Admin\UserController@users');
     Route::get('app/admin/user/add','WEB\Admin\UserController@insert');
     Route::post('app/admin/user/add','WEB\Admin\UserController@store');
+    Route::get('app/admin/user/{user_id}/edit','WEB\Admin\UserController@edit');
+    Route::post('app/admin/user/{user_id}/editData','WEB\Admin\UserController@update');
+    Route::post('app/admin/user/{user_id}/editPass','WEB\Admin\UserController@updatePassword');
 
 });
 
