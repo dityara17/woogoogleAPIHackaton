@@ -12,6 +12,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
           type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    {{-- select 2 --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
 
     <!-- Bootstrap Core Css -->
     <link href="{!! asset('admin/plugins/bootstrap/css/bootstrap.css') !!}" rel="stylesheet">
@@ -22,11 +27,16 @@
     <!-- Animation Css -->
     <link href="{!! asset('admin/plugins/animate-css/animate.css') !!}" rel="stylesheet"/>
 
+    <!-- Bootstrap Select Css -->
+    <link href="{!! asset('admin/plugins/bootstrap-select/css/bootstrap-select.css') !!}" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="{!! asset('admin/css/style.css') !!}" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{!! asset('admin/css/themes/all-themes.css') !!}" rel="stylesheet"/>
+
+    @yield('optional_component')
 </head>
 
 <body class="theme-red">
@@ -100,12 +110,12 @@
                 <li class="">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">content_copy</i>
-                        <span>Pages</span>
+                        <span>Kelas</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="">New Post</a>
-                            <a href="">Category</a>
+                            <a href="{!! url('app/admin/kelas') !!}">Kelas</a>
+                            <a href="{!! url('app/admin/kategori') !!}">Kategori</a>
                         </li>
                     </ul>
                 </li>
@@ -130,6 +140,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>@yield('page_title')</h2>
+            <br> <br>
             @yield('content')
         </div>
     </div>
@@ -144,17 +155,29 @@
 <!-- Select Plugin Js -->
 <script src="{!! asset('admin/plugins/bootstrap-select/js/bootstrap-select.js') !!}"></script>
 
+
+<!-- Select Plugin Js -->
+<script src="{!! asset('admin/plugins/bootstrap-select/js/bootstrap-select.js') !!}"></script>
+
 <!-- Slimscroll Plugin Js -->
 <script src="{!! asset('admin/plugins/jquery-slimscroll/jquery.slimscroll.js') !!}"></script>
+
+{{--ckeditor--}}
+<script src="{!! asset('admin/plugins/ckeditor/ckeditor.js') !!}"></script>
+
+{{--slect 2--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <!-- Waves Effect Plugin Js -->
 <script src="{!! asset('admin/plugins/node-waves/waves.js') !!}"></script>
 
 <!-- Custom Js -->
 <script src="{!! asset('admin/js/admin.js') !!}"></script>
+<script src="{!! asset('admin/js/pages/forms/editors.js') !!}"></script>
 
 <!-- Demo Js -->
 <script src="{!! asset('admin/js/demo.js') !!}"></script>
+
 </body>
 
 </html>

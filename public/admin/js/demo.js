@@ -1,3 +1,4 @@
+
 $(function () {
     skinChanger();
     activateNotificationAndTasksScroll();
@@ -105,3 +106,5 @@ function loadTracking() {
     ga('send', 'pageview');
 }
 //========================================================================================================
+
+// In your Javascript (external .js resource or <script> tag)
