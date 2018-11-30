@@ -53,11 +53,11 @@ Route::group(['middleware' => 'cAuth'], function(){
     Route::get('app/admin/user/add','WEB\Admin\UserController@insert');
     Route::post('app/admin/user/add','WEB\Admin\UserController@store');
 
+    Route::get('app/admin', 'WEB\Admin\UserController@index');
+
+
 });
 
-
-
-Route::get('app/admin', 'WEB\Admin\UserController@index');
 Route::get('app/admin/login', 'WEB\Admin\AuthController@index');
 Route::post('app/admin/login', 'WEB\Admin\AuthController@checkLog');
 
