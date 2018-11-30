@@ -150,7 +150,7 @@
         </div>
     </div>
 
-   
+
 
     @include('home.slice.footer')
 
