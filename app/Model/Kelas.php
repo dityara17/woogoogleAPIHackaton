@@ -11,8 +11,14 @@ class Kelas extends Model
 
     protected $table = 'kelas';
 
-    public function getUser(){
-        return $this->belongsTo('App\Model\User','author');
+    public function getUser()
+    {
+        return $this->belongsTo('App\Model\User', 'author');
+    }
+
+    public function getKategori()
+    {
+        return $this->belongsTo('App\Model\Kategori', 'id_kategori');
     }
 
     public function getKategori(){
