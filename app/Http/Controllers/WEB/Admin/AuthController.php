@@ -9,15 +9,22 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('admin.auth.login');
     }
 
-    public function checkLog(Request $r){
+    public function register()
+    {
+        return view('admin.auth.register');
+    }
+
+    public function checkLog(Request $r)
+    {
         $user = User::where('email', $r->email)->first();
         if ($user && Hash::check($r->password, $user->password)) {
 
-            if (!empty(session('user'))){
+            if (!empty(session('user'))) {
                 session()->forget('user');
             }
 
@@ -30,20 +37,35 @@ class AuthController extends Controller
             session(['user' => $me]);
             if (session('user')['role'] == 1) {
                 return redirect()->to('app/admin');
-            } else{
+            } else {
                 return redirect()->to('/');
             }
 
         } else {
-            return redirect()->to('app/login')->with('error','Error email or password');
+            return redirect()->to('app/login')->with('error', 'Error email or password');
         }
     }
-    public function logout(){
+
+    public function logout()
+    {
         session()->forget('user');
         return redirect('app/login');
     }
 
-    public function store(Request $request){
+    public function inputRegister(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->sex = $request->sex;
+        $user->role = 2;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->to('app/login')->with('success', 'Registrasi berhasil. Silakan login');
+    }
+
+    public function store(Request $request)
+    {
         $user = new User();
         $user->role = 1;
         $user->name = $request->name;

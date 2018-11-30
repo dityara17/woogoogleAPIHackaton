@@ -22,7 +22,16 @@
     </div>
     <div class="header_side d-flex flex-row justify-content-center align-items-center">
         <img src="{{url('images/man.svg')}}" alt="">
-        <span>{{Session::get('login')}}</span>
+        <span>
+            <?php if (session('user') == null) {
+                echo "<a style='color: white' href='app/login'>Login</a>";
+                echo "<a style='color: white' href='app/register'>  | Register</a>";
+            } else {
+                echo session('user')['name'];
+                echo "<a style='color: white' href='app/logout'>  | Keluar</a>";
+            }
+
+            ?></span>
     </div>
 
     <!-- Hamburger -->

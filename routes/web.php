@@ -17,12 +17,17 @@
 
 
 Route::get('app/login','WEB\Admin\AuthController@index');
+Route::get('app/register','WEB\Admin\AuthController@register');
 Route::get('app/admin/logout','WEB\Admin\AuthController@logout');
 Route::post('app/admin/login','WEB\Admin\AuthController@checkLog');
-
+Route::post('app/client/register','WEB\Admin\AuthController@inputRegister')->name('register');
 // route user client
 Route::group(['middleware' => 'cAuthClient'], function(){
 
+    Route::get('class/detail/{id}','Web\Home\HomeController@detailClass')->name('detailkelas');
+    Route::get('class/enroll/{kelas_id}','Web\Home\HomeController@enrollClass')->name('enrollclass');
+    Route::get('class/content/{kelas_id}/{id}','Web\Home\HomeController@kelasKonten')->name('kelaskonten');
+    Route::get('app/logout','WEB\Admin\AuthController@logout');
 });
 
 // route user admin
@@ -66,6 +71,8 @@ Route::group(['middleware' => 'cAuth'], function(){
     Route::get('app/admin', 'WEB\Admin\UserController@index');
 
 
+
+
 });
 
 Route::get('app/admin/login', 'WEB\Admin\AuthController@index');
@@ -73,6 +80,5 @@ Route::post('app/admin/login', 'WEB\Admin\AuthController@checkLog');
 
 Route::get('/', 'Web\Home\HomeController@index')->name('home');
 Route::get('class', 'Web\Home\HomeController@course')->name('course');
+
 Route::get('class/{kategori_id}', 'Web\Home\HomeController@getclass')->name('getclass');
-Route::get('class/detail/{id}','Web\Home\HomeController@detailClass')->name('detailkelas');
-Route::get('class/content/{kelas_id}/{id}','Web\Home\HomeController@kelasKonten')->name('kelaskonten');
