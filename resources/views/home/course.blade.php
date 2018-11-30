@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Course - Courses</title>
+    <title>wooBrain</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Course Project">
@@ -50,7 +50,7 @@
                 @foreach($list as $value)
                     <div class="col-lg-4 course_box">
                         <div class="card">
-                            <img class="card-img-top" src="images/course_1.jpg" alt="https://unsplash.com/@kellybrito">
+                            <img class="card-img-top" src="{{url('images/kategori/'.$value->gambar)}}" alt="">
                             <div class="card-body text-center" style="padding-bottom: 30px">
                                 <div class="card-title" style="padding-bottom: 10px"><a
                                             href="{{route('getclass', $value->id)}}">{{$value->nama}}</a></div>
