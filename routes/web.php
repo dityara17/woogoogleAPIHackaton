@@ -45,7 +45,9 @@ Route::group(['middleware' => 'cAuth'], function(){
     Route::get('app/admin/kelas/{kelas_id}/enroll','WEB\Admin\EnrollController@index');
 
     //users
-
+    Route::get('app/admin/users','WEB\Admin\UserController@users');
+    Route::get('app/admin/user/add','WEB\Admin\UserController@insert');
+    Route::post('app/admin/user/add','WEB\Admin\UserController@store');
 
 });
 
