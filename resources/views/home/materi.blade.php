@@ -70,7 +70,7 @@
 
                                     </div>
                                     <div class="news_post_text">
-                                        <p style="color: #0D0A0A; font-size: 14px">{{$x->konten}}</p>
+                                        {{$x->konten}}
                                     </div>
 
 
