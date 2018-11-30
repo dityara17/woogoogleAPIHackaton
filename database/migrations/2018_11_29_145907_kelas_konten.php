@@ -16,6 +16,7 @@ class KelasKonten extends Migration
         Schema::create('kelas_konten', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_kelas');
+            $table->text('nama');
             $table->text('konten');
             $table->softDeletes();
             $table->timestamps();
