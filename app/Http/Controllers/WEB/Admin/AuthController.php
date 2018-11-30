@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\WEB\Admin;
 
+use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,7 +22,6 @@ class AuthController extends Controller
                 'role' => $user->role,
                 'name' => $user->name,
                 'email' => $user->email,
-                'phone' => $user->phone
             );
             session(['user' => $me]);
             return redirect()->to('app/admin');
@@ -39,7 +40,7 @@ class AuthController extends Controller
         $user->role = 1;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->phone = $request->phone;
+        $user->sex = $request->sex;
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->to('app/admin/login');

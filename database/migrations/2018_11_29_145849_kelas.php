@@ -15,6 +15,7 @@ class Kelas extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_kategori');
             $table->string('nama_kelas');
             $table->text('deskripsi');
             $table->string('gambar');

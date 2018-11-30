@@ -32,4 +32,7 @@ class Kategori extends Migration
     {
         Schema::dropIfExists('kategori');
     }
+
 }
+
+
