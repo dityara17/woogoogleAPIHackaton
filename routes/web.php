@@ -39,6 +39,7 @@ Route::group(['middleware' => 'cAuth'], function(){
     Route::post('app/admin/kelas/{kelas_id}/materi/add','WEB\Admin\KelasKontenController@store');
     Route::get('app/admin/kelas/{kelas_id}/materi/{materi_id}/edit','WEB\Admin\KelasKontenController@edit');
     Route::post('app/admin/kelas/{kelas_id}/materi/{materi_id}/edit','WEB\Admin\KelasKontenController@update');
+    Route::get('app/admin/kelas/{kelas_id}/materi/{materi_id}/delete','WEB\Admin\KelasKontenController@destroy');
 
 });
 
