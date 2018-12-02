@@ -32,9 +32,46 @@ class ApiController extends Controller
 
     }
 
-    public function getAllClass()
+    public function searchLearningPath(Request $request)
     {
-        $list = Kelas::all();
+
+        $this->validatedData = Validator::make($request->all(), [
+            'query' => 'required',
+        ]);
+
+        $tid = $request['query'];
+
+        $list = Kategori::where('nama', 'LIKE', "%$tid%")->get();
+        $listall = array();
+
+        foreach ($list as $l) {
+            $listall[] = [
+                'id_learning' => $l->id,
+                'name_learning' => $l->nama,
+                'image_path' => $l->gambar,
+                'description' => $l->deskripsi
+            ];
+        }
+
+        if ($tid == null) {
+            return response()->json(['error' => $this->validatedData->errors()], 401);
+        } else {
+            return response()->json($listall);
+        }
+
+
+    }
+
+    public function searchClass(Request $request)
+    {
+
+        $this->validatedData = Validator::make($request->all(), [
+            'query' => 'required',
+        ]);
+
+        $tid = $request['query'];
+
+        $list = Kelas::where('nama_kelas', 'LIKE', "%$tid%")->get();
         $listall = array();
 
         foreach ($list as $l) {
@@ -47,7 +84,32 @@ class ApiController extends Controller
             ];
         }
 
-        return response()->json($listall);
+        if ($tid == null) {
+            return response()->json(['error' => $this->validatedData->errors()], 401);
+        } else {
+            return response()->json($listall);
+        }
+
+
+    }
+
+    public function getAllClass()
+    {
+        $list = Kelas::all();
+        $x = array();
+
+        foreach ($list as $l) {
+            $x[] = [
+                'id_class' => $l->id,
+                'id_learning' => $l->id_kategori,
+                'name_class' => $l->nama_kelas,
+                'description' => $l->deskripsi,
+                'image_path' => $l->gambar
+
+            ];
+        }
+
+        return response()->json($x);
 
 
     }

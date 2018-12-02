@@ -25,3 +25,5 @@ Route::post('getClassFromLearning', 'API\ApiController@getClass');
 Route::post('detailClass', 'API\ApiController@detailKelas');
 Route::post('getCourse', 'API\ApiController@getCourse');
 Route::post('detailCourse', 'API\ApiController@detailCourse');
+Route::post('search/learningPath', 'API\ApiController@searchLearningPath');
+Route::post('search/class', 'API\ApiController@searchClass');
