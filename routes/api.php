@@ -19,11 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('getLearningPath', 'API\ApiController@getLearningPath');
-Route::get('getAllClass', 'API\ApiController@getAllClass');
-Route::post('getClassFromLearning', 'API\ApiController@getClass');
-Route::post('detailClass', 'API\ApiController@detailKelas');
-Route::post('getCourse', 'API\ApiController@getCourse');
-Route::post('detailCourse', 'API\ApiController@detailCourse');
+Route::get('learning', 'API\ApiController@getLearningPath');
+Route::get('class', 'API\ApiController@getAllClass');
+Route::get('class/{id_learning}', 'API\ApiController@getClass');
+Route::get('class/detail/{id_class}', 'API\ApiController@detailKelas');
+Route::get('course/{id_class}', 'API\ApiController@getCourse');
+Route::get('course/detail/{id_course}', 'API\ApiController@detailCourse');
 Route::post('search/learningPath', 'API\ApiController@searchLearningPath');
 Route::post('search/class', 'API\ApiController@searchClass');
