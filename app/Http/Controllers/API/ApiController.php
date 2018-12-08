@@ -114,16 +114,11 @@ class ApiController extends Controller
 
     }
 
-    public function getClass(Request $request)
+    public function getClass($id_learning)
     {
 
-        $this->validatedData = Validator::make($request->all(), [
-            'id_learning' => 'required',
-        ]);
-
-        $tid = $request['id_learning'];
         $list = Kelas::all()
-            ->where('id_kategori', '==', $tid);
+            ->where('id_kategori', '==', $id_learning);
         $listall = array();
 
         foreach ($list as $l) {
@@ -135,23 +130,18 @@ class ApiController extends Controller
             ];
         }
 
-        if ($tid == null) {
-            return response()->json(['error' => $this->validatedData->errors()], 401);
+        if ($id_learning == null) {
+            return response()->json(['error' => 'id_learning required']);
         } else {
             return response()->json($listall);
         }
     }
 
-    public function getCourse(Request $request)
+    public function getCourse($id_class)
     {
 
-        $this->validatedData = Validator::make($request->all(), [
-            'id_class' => 'required',
-        ]);
-
-        $tid = $request['id_class'];
         $list = KelasKonten::all()
-            ->where('id_kelas', '==', $tid);
+            ->where('id_kelas', '==', $id_class);
         $listall = array();
 
         foreach ($list as $l) {
@@ -162,7 +152,7 @@ class ApiController extends Controller
             ];
         }
 
-        if ($tid == null) {
+        if ($id_class == null) {
             return response()->json(['error' => $this->validatedData->errors()], 401);
         } else {
             return response()->json($listall);
@@ -170,20 +160,14 @@ class ApiController extends Controller
     }
 
 
-    public function detailKelas(Request $request)
+    public function detailKelas($id_class)
     {
 
-        $this->validatedData = Validator::make($request->all(), [
-            'id_class' => 'required',
-        ]);
 
-        $tid = $request['id_class'];
-
-
-        if ($tid == null) {
+        if ($id_class == null) {
             return response()->json(['error' => $this->validatedData->errors()], 401);
         } else {
-            $list = Kelas::where('id', '=', $tid)->first();
+            $list = Kelas::where('id', '=', $id_class)->first();
 
             $listall = array(
                 'id_class' => $list->id,
@@ -196,20 +180,14 @@ class ApiController extends Controller
         }
     }
 
-    public function detailCourse(Request $request)
+    public function detailCourse($id_course)
     {
 
-        $this->validatedData = Validator::make($request->all(), [
-            'id_course' => 'required',
-        ]);
 
-        $tid = $request['id_course'];
-
-
-        if ($tid == null) {
+        if ($id_course == null) {
             return response()->json(['error' => $this->validatedData->errors()], 401);
         } else {
-            $list = KelasKonten::where('id', '=', $tid)->first();
+            $list = KelasKonten::where('id', '=', $id_course)->first();
 
             $listall = array(
                 'id_course' => $list->id,
